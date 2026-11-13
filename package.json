@@ -1,0 +1,20 @@
+{
+  "name": "broasterdelchef-caribe",
+  "version": "1.0.0",
+  "description": "Menú Digital y Portal de Sedes Populares - Broaster del Chef Caribe (Fondo Emprender SENA)",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve . -l 3010",
+    "dev": "serve . -l 3010"
+  },
+  "keywords": [
+    "broaster",
+    "fondo-emprender",
+    "sena",
+    "restaurante",
+    "dark-kitchen",
+    "caribe"
+  ],
+  "author": "Daniel Manzanera Salcedo",
+  "license": "ISC"
+}

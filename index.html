@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Broaster del Chef Caribe | Menú Digital & Sedes Populares</title>
+    
+    <!-- Meta SEO & Open Graph -->
+    <meta name="description" content="Broaster del Chef Caribe - Proyecto Piloto Fondo Emprender. 1 Cocina Oculta y 2 Locales en Barrios Populares de Barranquilla y Soledad. Pide tu pollo broaster crujiente y Los Helados del Chef.">
+    <meta property="og:title" content="Broaster del Chef Caribe | El Crunch que Conquista la Costa">
+    <meta property="og:description" content="Menú Digital Interactivo y Pedidos a Domicilio en Soledad, Murillo y Barranquilla.">
+    <meta property="og:image" content="https://elbroasterdelchef.com.co/image/pollo-broaster.jpg">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        broaster: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            500: '#e63946',
+                            600: '#c1121f',
+                            700: '#9b0e19',
+                            dark: '#780016'
+                        },
+                        crunch: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            accent: '#f4a261'
+                        },
+                        helados: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            400: '#38bdf8',
+                            500: '#00a8e8',
+                            600: '#0284c7'
+                        },
+                        carbon: {
+                            800: '#222222',
+                            900: '#141414',
+                            950: '#0a0a0a'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Bebas Neue', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#0f1115] text-slate-100 font-sans antialiased selection:bg-broaster-500 selection:text-white">
+
+    <!-- Ticker Superior Promocional & Fondo Emprender -->
+    <div class="bg-gradient-to-r from-broaster-700 via-broaster-600 to-crunch-600 text-white text-xs font-semibold py-1.5 px-4">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+                <span class="bg-white/20 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] uppercase tracking-wider font-bold">
+                    <i class="fas fa-certificate text-crunch-400 mr-1"></i> Fondo Emprender • SENA
+                </span>
+                <span class="hidden sm:inline">Proyecto Piloto: Adquisición de Franquicia • 1 Cocina Oculta + 2 Locales en Barrio Popular</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <button onclick="abrirModalFondoEmprender()" class="underline hover:text-crunch-300 transition text-[11px] font-bold">
+                    <i class="fas fa-file-invoice mr-1"></i> Ficha Técnica Proyecto
+                </button>
+                <span class="text-white/40">|</span>
+                <a href="#sedes" class="hover:text-crunch-300 transition text-[11px]">
+                    <i class="fas fa-location-dot mr-1"></i> 3 Puntos Caribe
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Principal -->
+    <header class="sticky top-0 z-40 bg-carbon-900/95 backdrop-blur-md border-b border-white/10 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+            
+            <!-- Logo & Marca -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="relative w-12 h-12 rounded-2xl bg-gradient-to-tr from-broaster-600 to-crunch-500 p-0.5 shadow-lg shadow-broaster-500/20 group-hover:scale-105 transition-transform duration-300">
+                    <div class="w-full h-full bg-carbon-900 rounded-[14px] flex items-center justify-center overflow-hidden">
+                        <img src="https://elbroasterdelchef.com.co/image/logo.png" alt="El Broaster del Chef" class="w-10 h-10 object-contain" onerror="this.onerror=null; this.src='https://elbroasterdelchef.com.co/image/Logo-texto.png';">
+                    </div>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="font-display tracking-wider text-2xl text-white font-extrabold uppercase leading-none">
+                            Broaster <span class="text-broaster-500">del Chef</span>
+                        </span>
+                        <span class="bg-gradient-to-r from-crunch-500 to-crunch-600 text-carbon-950 text-[10px] font-black uppercase px-2 py-0.5 rounded-full shadow">
+                            Caribe
+                        </span>
+                    </div>
+                    <p class="text-[11px] text-slate-400 font-medium">Receta Secreta • 10 Años de Pasión Crunch</p>
+                </div>
+            </a>
+
+            <!-- Selector de Sede Activa (Desktop) -->
+            <div class="hidden md:flex items-center bg-carbon-800/80 border border-white/10 rounded-2xl p-1.5 gap-2">
+                <div class="pl-3 pr-2 text-xs text-slate-400 flex items-center gap-1.5">
+                    <i class="fas fa-store text-broaster-500"></i>
+                    <span class="font-semibold text-slate-300">Punto Activo:</span>
+                </div>
+                <div class="relative">
+                    <select id="sedeHeaderSelect" onchange="cambiarSede(this.value)" class="bg-carbon-900 text-white font-bold text-xs py-2 px-3 pr-8 rounded-xl border border-white/10 focus:outline-none focus:border-broaster-500 appearance-none cursor-pointer">
+                        <option value="soledad">📍 Local 1: Barrio Soledad (Calle 30)</option>
+                        <option value="simon-bolivar">📍 Local 2: Barrio Popular (Murillo / Simón Bolívar)</option>
+                        <option value="cocina-oculta">🛵 Piloto: Cocina Oculta (Dark Kitchen Hub)</option>
+                    </select>
+                    <i class="fas fa-chevron-down absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 text-[10px] pointer-events-none"></i>
+                </div>
+                <span id="badgeEstadoHeader" class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[11px] font-bold px-2.5 py-1.5 rounded-xl flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Abierto
+                </span>
+            </div>
+
+            <!-- Acciones Rápidas: Buscar, Franquicia, Carrito -->
+            <div class="flex items-center gap-3">
+                <button onclick="scrollToSedes()" class="hidden lg:inline-flex items-center gap-1.5 text-xs font-bold text-slate-300 hover:text-white bg-white/5 hover:bg-white/10 px-3 py-2 rounded-xl transition border border-white/5">
+                    <i class="fas fa-map-marked-alt text-crunch-400"></i> Ver Sedes
+                </button>
+
+                <button onclick="abrirModalFondoEmprender()" class="hidden sm:inline-flex items-center gap-1.5 text-xs font-extrabold text-carbon-950 bg-gradient-to-r from-crunch-400 to-crunch-500 hover:brightness-110 px-3.5 py-2 rounded-xl shadow-md transition">
+                    <i class="fas fa-chart-line"></i> Modelo Piloto
+                </button>
+
+                <!-- Botón Carrito Flotante/Header -->
+                <button onclick="toggleCarrito()" class="relative bg-broaster-600 hover:bg-broaster-500 text-white p-2.5 sm:px-4 sm:py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 shadow-lg shadow-broaster-600/30 transition transform active:scale-95">
+                    <i class="fas fa-shopping-bag text-base"></i>
+                    <span class="hidden sm:inline">Mi Pedido</span>
+                    <span id="carritoContador" class="bg-carbon-950 text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center border border-white/20">
+                        0
+                    </span>
+                    <span id="carritoTotalHeader" class="hidden sm:inline text-crunch-300 font-extrabold ml-1">
+                        $0
+                    </span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Selector de Sede Móvil Bar -->
+        <div class="md:hidden bg-carbon-800 border-t border-white/5 px-4 py-2 flex items-center justify-between gap-2">
+            <div class="flex items-center gap-1.5 text-[11px] text-slate-300 font-semibold truncate">
+                <i class="fas fa-store text-broaster-500 shrink-0"></i>
+                <span class="truncate" id="sedeMovilLabel">Sede: Barrio Soledad</span>
+            </div>
+            <button onclick="scrollToSedes()" class="text-[11px] text-crunch-400 font-bold shrink-0 underline">
+                Cambiar Punto
+            </button>
+        </div>
+    </header>
+
+    <!-- Carrusel Hero Principal -->
+    <section class="relative overflow-hidden pt-4 pb-8 sm:py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="swiper heroSwiper rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+                <div class="swiper-wrapper">
+                    
+                    <!-- Slide 1: Presentación Caribe & Sabor -->
+                    <div class="swiper-slide relative bg-gradient-to-r from-carbon-950 via-carbon-900 to-carbon-950 min-h-[420px] sm:min-h-[460px] flex items-center">
+                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(230,57,70,0.25),transparent_60%)]"></div>
+                        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-6 sm:p-12 w-full">
+                            <div class="lg:col-span-7 space-y-4">
+                                <div class="inline-flex items-center gap-2 bg-broaster-500/10 border border-broaster-500/30 text-broaster-400 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">
+                                    <i class="fas fa-fire"></i> El Crunch Oficial en el Caribe
+                                </div>
+                                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight font-display tracking-wide">
+                                    POLLO BROASTER <span class="text-transparent bg-clip-text bg-gradient-to-r from-crunch-400 via-crunch-500 to-broaster-500">CRUJIENTE Y JUGOSO</span>
+                                </h1>
+                                <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-xl">
+                                    Receta secreta con más de 10 años de perfección, marinado natural y tecnología de cocción a presión que sella todos los jugos con el crujido insuperable. ¡Directo a tu mesa o domicilio!
+                                </p>
+                                <div class="flex flex-wrap items-center gap-3 pt-2">
+                                    <a href="#menu-seccion" class="bg-broaster-600 hover:bg-broaster-500 text-white font-extrabold text-sm px-6 py-3.5 rounded-2xl shadow-xl shadow-broaster-600/30 flex items-center gap-2 transition transform active:scale-95">
+                                        <i class="fas fa-utensils"></i> Explorar Menú Digital
+                                    </a>
+                                    <button onclick="scrollToSedes()" class="bg-white/10 hover:bg-white/15 text-white font-bold text-sm px-5 py-3.5 rounded-2xl border border-white/10 transition">
+                                        <i class="fas fa-map-marker-alt text-crunch-400 mr-1.5"></i> Elegir mi Sede
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 flex justify-center relative">
+                                <div class="w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-gradient-to-tr from-crunch-500/20 to-broaster-500/20 blur-2xl absolute"></div>
+                                <img src="https://elbroasterdelchef.com.co/image/pollo-broaster.jpg" alt="Pollo Broaster Crujiente" class="relative z-10 w-full max-w-sm rounded-3xl shadow-2xl object-cover border border-white/20 hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=800&q=80';">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Proyecto Fondo Emprender -->
+                    <div class="swiper-slide relative bg-gradient-to-r from-carbon-950 via-slate-900 to-carbon-950 min-h-[420px] sm:min-h-[460px] flex items-center">
+                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(245,158,11,0.2),transparent_60%)]"></div>
+                        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-6 sm:p-12 w-full">
+                            <div class="lg:col-span-7 space-y-4">
+                                <div class="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">
+                                    <i class="fas fa-award"></i> Modelo de Negocio Fondo Emprender
+                                </div>
+                                <h2 class="text-3xl sm:text-5xl font-extrabold text-white leading-tight font-display tracking-wide">
+                                    PILOTO TRIPARTITO: <span class="text-crunch-400">1 COCINA OCULTA + 2 LOCALES</span>
+                                </h2>
+                                <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-xl">
+                                    Adquisición de franquicia y despliegue estratégico en barrios populares del Atlántico (Soledad y Barranquilla Sur) articulado con un Dark Kitchen Hub para 100% cobertura de domicilios digitales.
+                                </p>
+                                <div class="grid grid-cols-3 gap-3 py-2 max-w-md">
+                                    <div class="bg-white/5 border border-white/10 rounded-xl p-3 text-center">
+                                        <div class="text-crunch-400 font-extrabold text-lg sm:text-xl">12+</div>
+                                        <div class="text-[11px] text-slate-400">Empleos Directos</div>
+                                    </div>
+                                    <div class="bg-white/5 border border-white/10 rounded-xl p-3 text-center">
+                                        <div class="text-emerald-400 font-extrabold text-lg sm:text-xl">56.2%</div>
+                                        <div class="text-[11px] text-slate-400">Margen Contribución</div>
+                                    </div>
+                                    <div class="bg-white/5 border border-white/10 rounded-xl p-3 text-center">
+                                        <div class="text-broaster-400 font-extrabold text-lg sm:text-xl">14 Meses</div>
+                                        <div class="text-[11px] text-slate-400">Retorno Inversión</div>
+                                    </div>
+                                </div>
+                                <div class="pt-1">
+                                    <button onclick="abrirModalFondoEmprender()" class="bg-gradient-to-r from-crunch-500 to-crunch-600 hover:brightness-110 text-carbon-950 font-black text-xs sm:text-sm px-6 py-3 rounded-2xl shadow-lg transition">
+                                        <i class="fas fa-book-open mr-2"></i> Ver Sustentación SENA CNCA
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 flex flex-col items-center justify-center p-6 bg-carbon-800/80 rounded-3xl border border-white/10">
+                                <i class="fas fa-network-wired text-5xl text-crunch-400 mb-3"></i>
+                                <h3 class="text-lg font-bold text-white text-center">Ecosistema Caribe Integrado</h3>
+                                <p class="text-xs text-slate-400 text-center mt-1">Sede Soledad • Sede Simón Bolívar • Dark Kitchen Hub</p>
+                                <div class="w-full mt-4 space-y-2 text-xs">
+                                    <div class="flex items-center justify-between p-2 rounded-lg bg-carbon-900/80">
+                                        <span class="text-slate-300">🏪 Local Soledad:</span>
+                                        <span class="text-emerald-400 font-bold">Atención Mesa + Domicilio</span>
+                                    </div>
+                                    <div class="flex items-center justify-between p-2 rounded-lg bg-carbon-900/80">
+                                        <span class="text-slate-300">🏪 Local Simón Bolívar:</span>
+                                        <span class="text-emerald-400 font-bold">Atención Mesa + Domicilio</span>
+                                    </div>
+                                    <div class="flex items-center justify-between p-2 rounded-lg bg-carbon-900/80">
+                                        <span class="text-slate-300">🛵 Dark Kitchen Hub:</span>
+                                        <span class="text-crunch-400 font-bold">100% Digital / Rappi / Web</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: Los Helados del Chef -->
+                    <div class="swiper-slide relative bg-gradient-to-r from-carbon-950 via-[#0a2540] to-carbon-950 min-h-[420px] sm:min-h-[460px] flex items-center">
+                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(0,168,232,0.25),transparent_60%)]"></div>
+                        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-6 sm:p-12 w-full">
+                            <div class="lg:col-span-7 space-y-4">
+                                <div class="inline-flex items-center gap-2 bg-helados-500/10 border border-helados-500/30 text-helados-400 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">
+                                    <i class="fas fa-ice-cream"></i> Doble Motor de Rentabilidad
+                                </div>
+                                <h2 class="text-3xl sm:text-5xl font-extrabold text-white leading-tight font-display tracking-wide">
+                                    NUEVA LÍNEA: <span class="text-helados-400">LOS HELADOS DEL CHEF</span>
+                                </h2>
+                                <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-xl">
+                                    Heladería gourmet artesanal integrada dentro del mismo punto de venta (desde 3 m²). Sundaes crocantes, copas artesanales y malteadas espesas con 55% de margen sin regalías de marca.
+                                </p>
+                                <div class="flex items-center gap-3 pt-2">
+                                    <button onclick="filtrarCategoria('helados')" class="bg-helados-500 hover:bg-helados-600 text-white font-extrabold text-sm px-6 py-3.5 rounded-2xl shadow-xl shadow-helados-500/30 flex items-center gap-2 transition">
+                                        <i class="fas fa-ice-cream"></i> Ver Catálogo de Helados
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="p-6 bg-carbon-800/80 rounded-3xl border border-helados-500/20 text-center max-w-xs">
+                                    <img src="https://elbroasterdelchef.com.co/image/logo-helados.png" alt="Los Helados del Chef" class="h-24 mx-auto mb-3 object-contain" onerror="this.onerror=null; this.src='https://elbroasterdelchef.com.co/image/logo.png';">
+                                    <h4 class="text-white font-bold text-base">Heladería Gourmet</h4>
+                                    <p class="text-xs text-slate-400 mt-1">El postre perfecto para acompañar tu pollo broaster en cada pedido.</p>
+                                    <span class="inline-block mt-3 text-xs bg-helados-500/20 text-helados-300 font-extrabold px-3 py-1 rounded-full">
+                                        Postres desde $4.500 COP
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Paginación Swiper -->
+                <div class="swiper-pagination"></div>
+                <!-- Botones Nav -->
+                <div class="swiper-button-next text-white/50 hover:text-white transition"></div>
+                <div class="swiper-button-prev text-white/50 hover:text-white transition"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE SEDES Y SELECCIÓN DE PUNTO (MEJORADA VS OFICIAL) -->
+    <section id="sedes" class="py-10 bg-carbon-900 border-y border-white/5 scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-8">
+                <span class="text-crunch-400 text-xs font-bold uppercase tracking-widest bg-crunch-500/10 px-3 py-1 rounded-full border border-crunch-500/20">
+                    <i class="fas fa-store-alt mr-1"></i> Red Piloto Regional Caribe
+                </span>
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-2 font-display tracking-wide">
+                    ELIGE TU SEDE O PUNTO DE DESPACHO
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-400 mt-1">
+                    Cada punto cuenta con cocina industrial homologada, despacho a domicilio y atención personalizada.
+                </p>
+            </div>
+
+            <!-- Grid de las 3 Sedes -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="sedesGrid">
+                <!-- Se inyecta dinámicamente con JS para máxima interactividad -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN MENÚ DIGITAL DINÁMICO & PRODUCTOS -->
+    <section id="menu-seccion" class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header del Menú + Selector de Sede Activa Notificación -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pb-6 border-b border-white/10">
+            <div>
+                <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-broaster-500"></span>
+                    <h2 class="text-3xl font-extrabold text-white font-display tracking-wide uppercase">
+                        Menú Digital Caribe
+                    </h2>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-400 mt-1" id="menuSubtituloSede">
+                    Mostrando menú oficial y despacho para: <strong class="text-crunch-400" id="nombreSedeActivaBanner">Barrio Soledad</strong>
+                </p>
+            </div>
+
+            <!-- Buscador en Tiempo Real -->
+            <div class="relative w-full md:w-80">
+                <i class="fas fa-search absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                <input type="text" id="busquedaInput" oninput="filtrarPorTexto(this.value)" placeholder="Buscar combo, helado, presas..." class="w-full bg-carbon-800 text-white placeholder-slate-500 text-xs sm:text-sm rounded-2xl pl-10 pr-4 py-3 border border-white/10 focus:outline-none focus:border-broaster-500 transition shadow-inner">
+                <button id="limpiarBusquedaBtn" onclick="limpiarBusqueda()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white text-xs">
+                    <i class="fas fa-times-circle"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Categorías / Filtros (Pills con Iconos) -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar" id="categoriasBar">
+            <button onclick="filtrarCategoria('todos')" data-cat="todos" class="cat-pill active flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-bold transition whitespace-nowrap bg-broaster-600 text-white shadow-md">
+                <i class="fas fa-fire"></i> Todos los Productos
+            </button>
+            <button onclick="filtrarCategoria('populares')" data-cat="populares" class="cat-pill flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-bold transition whitespace-nowrap bg-carbon-800 text-slate-300 hover:bg-carbon-700 hover:text-white border border-white/5">
+                <i class="fas fa-star text-crunch-400"></i> Más Pedidos
+            </button>
+            <button onclick="filtrarCategoria('personales')" data-cat="personales" class="cat-pill flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-bold transition whitespace-nowrap bg-carbon-800 text-slate-300 hover:bg-carbon-700 hover:text-white border border-white/5">
+                <i class="fas fa-drumstick-bite text-crunch-400"></i> Combos Personales
+            </button>
+            <button onclick="filtrarCategoria('familiares')" data-cat="familiares" class="cat-pill flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-bold transition whitespace-nowrap bg-carbon-800 text-slate-300 hover:bg-carbon-700 hover:text-white border border-white/5">
+                <i class="fas fa-users text-broaster-500"></i> Baldes & Familiares
+            </button>
+            <button onclick="filtrarCategoria('burgers')" data-cat="burgers" class="cat-pill flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-bold transition whitespace-nowrap bg-carbon-800 text-slate-300 hover:bg-carbon-700 hover:text-white border border-white/5">
+                <i class="fas fa-hamburger text-crunch-400"></i> Broaster Burgers
+            </button>
+            <button onclick="filtrarCategoria('helados')" data-cat="helados" class="cat-pill flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-bold transition whitespace-nowrap bg-carbon-800 text-slate-300 hover:bg-carbon-700 hover:text-white border border-white/5">
+                <i class="fas fa-ice-cream text-helados-400"></i> Los Helados del Chef
+            </button>
+            <button onclick="filtrarCategoria('bebidas')" data-cat="bebidas" class="cat-pill flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-bold transition whitespace-nowrap bg-carbon-800 text-slate-300 hover:bg-carbon-700 hover:text-white border border-white/5">
+                <i class="fas fa-wine-bottle text-emerald-400"></i> Acompañamientos
+            </button>
+        </div>
+
+        <!-- Grid de Productos -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="productosGrid">
+            <!-- Inyectado con JavaScript -->
+        </div>
+
+        <!-- Empty State si no hay resultados -->
+        <div id="noResultados" class="hidden text-center py-16 bg-carbon-900 rounded-3xl border border-white/5 mt-6">
+            <i class="fas fa-drumstick-bite text-5xl text-slate-600 mb-4 animate-bounce"></i>
+            <h3 class="text-xl font-bold text-white">No encontramos productos con ese nombre</h3>
+            <p class="text-xs text-slate-400 mt-1">Prueba con "combo", "presa", "helado", "burger" o revisa otra categoría.</p>
+            <button onclick="filtrarCategoria('todos')" class="mt-4 bg-broaster-600 hover:bg-broaster-500 text-white text-xs font-bold px-4 py-2 rounded-xl transition">
+                Restablecer Menú
+            </button>
+        </div>
+    </section>
+
+    <!-- SECCIÓN ESPECIAL: CARRUSEL DESTACADO LOS HELADOS DEL CHEF -->
+    <section class="py-12 bg-gradient-to-b from-carbon-900 via-[#0a1829] to-carbon-900 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                <div>
+                    <span class="text-helados-400 text-xs font-extrabold uppercase tracking-wider bg-helados-500/10 px-3 py-1 rounded-full border border-helados-500/20">
+                        <i class="fas fa-sparkles mr-1"></i> Línea Gourmet Exclusiva
+                    </span>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-white mt-2 font-display tracking-wide">
+                        LOS HELADOS DEL CHEF
+                    </h3>
+                    <p class="text-xs text-slate-400">El complemento de alta rentabilidad (55% margen) que enamora a toda la familia.</p>
+                </div>
+                <button onclick="filtrarCategoria('helados')" class="text-xs font-bold text-helados-400 hover:text-helados-300 flex items-center gap-1.5 self-start sm:self-center">
+                    Ver todos los postres <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+
+            <!-- Carrusel de Helados -->
+            <div class="swiper heladosSwiper">
+                <div class="swiper-wrapper" id="heladosCarruselWrapper">
+                    <!-- Inyectado vía JS -->
+                </div>
+                <div class="swiper-pagination mt-4"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN PROYECTO FONDO EMPRENDER & VALOR AGREGADO -->
+    <section class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-gradient-to-br from-carbon-800 to-carbon-900 rounded-3xl p-6 sm:p-10 border border-white/10 relative overflow-hidden shadow-2xl">
+            <div class="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-crunch-500/10 blur-3xl pointer-events-none"></div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-8 space-y-4">
+                    <div class="flex items-center gap-2">
+                        <span class="bg-crunch-500 text-carbon-950 text-xs font-black px-3 py-1 rounded-lg uppercase">
+                            SENA • CNCA Atlántico
+                        </span>
+                        <span class="text-xs text-slate-400">Nodo TICs • Ficha 2879654</span>
+                    </div>
+                    <h3 class="text-2xl sm:text-4xl font-extrabold text-white font-display tracking-wide">
+                        ¿POR QUÉ NUESTRO PILOTO EN BARRIOS POPULARES ES GANADOR?
+                    </h3>
+                    <p class="text-xs sm:text-base text-slate-300 leading-relaxed">
+                        En los barrios populares de Soledad y Barranquilla, el pollo apanado tradicional se comercializa con alta grasa y sin estandarización. Nuestro piloto formaliza el sector gastronómico mediante <strong>adquisición de franquicia oficial</strong>, freidoras broaster a presión de alta eficiencia, recetario certificado de más de 10 años y un motor digital de domicilios rápidos que dinamiza la economía local.
+                    </p>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+                        <div class="bg-carbon-900/90 p-3 rounded-2xl border border-white/5">
+                            <i class="fas fa-fire-burner text-crunch-400 mb-1"></i>
+                            <div class="font-extrabold text-white text-sm">Freidora Broaster</div>
+                            <div class="text-[10px] text-slate-400">Cocción a presión 0% exceso de grasa</div>
+                        </div>
+                        <div class="bg-carbon-900/90 p-3 rounded-2xl border border-white/5">
+                            <i class="fas fa-boxes-packing text-broaster-500 mb-1"></i>
+                            <div class="font-extrabold text-white text-sm">Empaque Térmico</div>
+                            <div class="text-[10px] text-slate-400">Crocancia garantizada en delivery</div>
+                        </div>
+                        <div class="bg-carbon-900/90 p-3 rounded-2xl border border-white/5">
+                            <i class="fas fa-ice-cream text-helados-400 mb-1"></i>
+                            <div class="font-extrabold text-white text-sm">Heladería Gourmet</div>
+                            <div class="text-[10px] text-slate-400">Doble motor sin regalías extras</div>
+                        </div>
+                        <div class="bg-carbon-900/90 p-3 rounded-2xl border border-white/5">
+                            <i class="fas fa-mobile-screen-button text-emerald-400 mb-1"></i>
+                            <div class="font-extrabold text-white text-sm">Canal Web & POS</div>
+                            <div class="text-[10px] text-slate-400">Infraestructura TIC integrada</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-4 bg-carbon-900/90 p-6 rounded-2xl border border-white/10 flex flex-col items-center text-center">
+                    <div class="w-16 h-16 rounded-full bg-crunch-500/10 flex items-center justify-center text-crunch-400 text-2xl mb-3">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h4 class="font-extrabold text-white text-base">Fondo Emprender 2026</h4>
+                    <p class="text-xs text-slate-400 mt-1 mb-4">
+                        Conoce la matriz de costos, proyecciones de ventas ($27.400 precio base combo) y organigrama operativo del piloto.
+                    </p>
+                    <button onclick="abrirModalFondoEmprender()" class="w-full bg-gradient-to-r from-crunch-500 to-crunch-600 hover:brightness-110 text-carbon-950 font-black text-xs py-3 rounded-xl transition shadow-lg">
+                        Ver Documentación Completa
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER CORPORATIVO -->
+    <footer class="bg-carbon-950 border-t border-white/10 pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                
+                <!-- Columna 1: Info Marca -->
+                <div class="space-y-3">
+                    <div class="flex items-center gap-2">
+                        <img src="https://elbroasterdelchef.com.co/image/logo.png" alt="El Broaster del Chef" class="h-8 object-contain">
+                        <span class="font-display tracking-wider text-xl text-white font-extrabold">
+                            BROASTER DEL CHEF <span class="text-broaster-500">CARIBE</span>
+                        </span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Proyecto Piloto de Adquisición de Franquicia para el Fondo Emprender. Puntos en Barrio Soledad, Barranquilla y Cocina Oculta Digital.
+                    </p>
+                    <div class="text-xs text-crunch-400 font-bold flex items-center gap-1">
+                        <i class="fas fa-star"></i> Calificación 4.9 / 5.0 (+500 opiniones de clientes)
+                    </div>
+                </div>
+
+                <!-- Columna 2: Sedes Caribe -->
+                <div class="space-y-2">
+                    <h4 class="text-xs font-extrabold uppercase tracking-wider text-white">Nuestras Sedes</h4>
+                    <ul class="text-xs text-slate-400 space-y-1.5">
+                        <li><a href="#sedes" class="hover:text-white transition">📍 Local 1: Barrio Soledad (Calle 30)</a></li>
+                        <li><a href="#sedes" class="hover:text-white transition">📍 Local 2: Simón Bolívar / Murillo</a></li>
+                        <li><a href="#sedes" class="hover:text-white transition">🛵 Sede 3: Cocina Oculta Hub Digital</a></li>
+                        <li class="pt-2 text-[11px] text-slate-500">Horario: Lun - Dom: 11:00 AM - 10:30 PM</li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Franquicias & Empresa -->
+                <div class="space-y-2">
+                    <h4 class="text-xs font-extrabold uppercase tracking-wider text-white">Líneas de Negocio</h4>
+                    <ul class="text-xs text-slate-400 space-y-1.5">
+                        <li>🍗 Pollo Broaster Crujiente Especial</li>
+                        <li>🍨 Los Helados del Chef (Línea Gourmet)</li>
+                        <li>🚀 Formato Restaurante Full & Dark Kitchen</li>
+                        <li>💼 Modelo de Expansión con el Chef</li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Contacto & SENA -->
+                <div class="space-y-2">
+                    <h4 class="text-xs font-extrabold uppercase tracking-wider text-white">Contacto Caribe</h4>
+                    <p class="text-xs text-slate-400">
+                        Atlántico, Colombia • Nodo TICs CNCA<br>
+                        Tel: <a href="tel:3125123149" class="text-crunch-400 hover:underline">312 512 3149</a><br>
+                        Email: <a href="mailto:gerencia.caribe@gmail.com" class="text-slate-300 hover:underline">gerencia.caribe@gmail.com</a>
+                    </p>
+                    <div class="pt-2 flex items-center gap-3 text-slate-400 text-lg">
+                        <a href="https://www.instagram.com/elbroasterdelchef_oficial/" target="_blank" class="hover:text-broaster-500 transition"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@elbroasterdelchefoficial" target="_blank" class="hover:text-broaster-500 transition"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.facebook.com/elbroasterdelchefofficial/" target="_blank" class="hover:text-broaster-500 transition"><i class="fab fa-facebook"></i></a>
+                        <a href="https://elbroasterdelchef.com.co/" target="_blank" class="hover:text-crunch-400 transition" title="Portal Nacional"><i class="fas fa-globe"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-6 border-t border-white/5 text-center text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <p>© 2026 Broaster del Chef Caribe S.A.S. • Operación y Modelo Piloto Fondo Emprender SENA.</p>
+                <div class="flex items-center gap-4 text-[11px]">
+                    <a href="https://elbroasterdelchef.com.co/" target="_blank" class="hover:text-slate-400">Portal Nacional</a>
+                    <span>•</span>
+                    <button onclick="abrirModalFondoEmprender()" class="hover:text-crunch-400">Ficha del Proyecto</button>
+                    <span>•</span>
+                    <a href="#sedes" class="hover:text-slate-400">Directorio de Sedes</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CARRITO DE COMPRAS FLOTANTE (SLIDE-OVER) -->
+    <div id="carritoDrawer" class="fixed inset-0 z-50 pointer-events-none transition-all duration-300">
+        <!-- Backdrop -->
+        <div id="carritoBackdrop" onclick="toggleCarrito()" class="absolute inset-0 bg-black/70 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+
+        <!-- Panel Lateral -->
+        <div id="carritoPanel" class="absolute top-0 right-0 bottom-0 w-full max-w-md bg-carbon-900 border-l border-white/10 shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 pointer-events-auto">
+            
+            <!-- Header Carrito -->
+            <div class="p-4 sm:p-5 border-b border-white/10 flex items-center justify-between bg-carbon-800">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-10 h-10 rounded-xl bg-broaster-500/20 text-broaster-500 flex items-center justify-center font-bold">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-extrabold text-white">Tu Pedido Caribe</h3>
+                        <p class="text-[11px] text-slate-400" id="carritoSedeLabel">Sede: Barrio Soledad</p>
+                    </div>
+                </div>
+                <button onclick="toggleCarrito()" class="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white flex items-center justify-center transition">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <!-- Selector Rápido de Sede dentro del Carrito -->
+            <div class="px-4 py-2.5 bg-carbon-950 border-b border-white/5 flex items-center justify-between text-xs">
+                <span class="text-slate-400">Despachar desde:</span>
+                <select id="carritoSedeSelect" onchange="cambiarSede(this.value)" class="bg-carbon-800 text-crunch-400 font-bold px-2 py-1 rounded-lg border border-white/10 focus:outline-none text-xs">
+                    <option value="soledad">📍 Barrio Soledad</option>
+                    <option value="simon-bolivar">📍 Simón Bolívar / Murillo</option>
+                    <option value="cocina-oculta">🛵 Cocina Oculta Hub</option>
+                </select>
+            </div>
+
+            <!-- Lista de Ítems -->
+            <div class="flex-1 overflow-y-auto p-4 space-y-3" id="carritoLista">
+                <!-- Inyectado vía JS -->
+            </div>
+
+            <!-- Footer Carrito con Totales y Checkout WhatsApp -->
+            <div class="p-4 sm:p-5 border-t border-white/10 bg-carbon-800/90 space-y-3">
+                
+                <!-- Datos de Entrega Breves -->
+                <div class="space-y-2 text-xs">
+                    <div>
+                        <label class="block text-slate-400 mb-1">Nombre de quien recibe:</label>
+                        <input type="text" id="pedidoClienteNombre" placeholder="Tu nombre completo" class="w-full bg-carbon-900 border border-white/10 rounded-xl px-3 py-2 text-white placeholder-slate-600 focus:outline-none focus:border-broaster-500">
+                    </div>
+                    <div>
+                        <label class="block text-slate-400 mb-1">Dirección de entrega y Barrio:</label>
+                        <input type="text" id="pedidoClienteDireccion" placeholder="Ej: Cra 19 # 24-15, Barrio Hipódromo" class="w-full bg-carbon-900 border border-white/10 rounded-xl px-3 py-2 text-white placeholder-slate-600 focus:outline-none focus:border-broaster-500">
+                    </div>
+                    <div>
+                        <label class="block text-slate-400 mb-1">Método de pago:</label>
+                        <select id="pedidoMetodoPago" class="w-full bg-carbon-900 border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-broaster-500">
+                            <option value="Efectivo">Efectivo contra entrega</option>
+                            <option value="Nequi">Nequi (Transferencia)</option>
+                            <option value="Daviplata">Daviplata</option>
+                            <option value="Datáfono">Datáfono (Tarjeta en mano)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Resumen de Costos -->
+                <div class="pt-2 border-t border-white/5 space-y-1 text-xs">
+                    <div class="flex items-center justify-between text-slate-400">
+                        <span>Subtotal Productos:</span>
+                        <span id="carritoSubtotal">$0</span>
+                    </div>
+                    <div class="flex items-center justify-between text-slate-400">
+                        <span>Costo de Envío Domicilio:</span>
+                        <span id="carritoEnvio" class="text-emerald-400">$3.000</span>
+                    </div>
+                    <div class="flex items-center justify-between text-white font-extrabold text-base pt-1">
+                        <span>Total a Pagar:</span>
+                        <span id="carritoTotal" class="text-crunch-400 text-lg">$0</span>
+                    </div>
+                </div>
+
+                <!-- Botón Principal WhatsApp -->
+                <button onclick="enviarPedidoWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm py-3.5 px-4 rounded-2xl flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/30 transition transform active:scale-95">
+                    <i class="fab fa-whatsapp text-xl"></i>
+                    <span>Confirmar y Enviar Pedido por WhatsApp</span>
+                </button>
+                <p class="text-[10px] text-center text-slate-500">
+                    El pedido se envía directamente al WhatsApp del punto seleccionado para despacho inmediato.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- MODAL INFORMATIVO: PROYECTO FONDO EMPRENDER & MODELO PILOTO -->
+    <div id="modalFondoEmprender" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+        <div class="fixed inset-0 bg-black/80 backdrop-blur-md" onclick="cerrarModalFondoEmprender()"></div>
+        <div class="relative bg-carbon-900 border border-white/20 rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl z-10 text-slate-200">
+            
+            <div class="flex items-start justify-between border-b border-white/10 pb-4 mb-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-crunch-500 to-broaster-600 p-0.5">
+                        <div class="w-full h-full bg-carbon-950 rounded-[14px] flex items-center justify-center">
+                            <i class="fas fa-file-contract text-crunch-400 text-xl"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-black uppercase tracking-wider text-crunch-400 bg-crunch-500/10 px-2.5 py-0.5 rounded-full border border-crunch-500/20">
+                            Fondo Emprender SENA • CNCA Atlántico
+                        </span>
+                        <h3 class="text-xl sm:text-2xl font-extrabold text-white">Proyecto Piloto: Adquisición de Franquicia</h3>
+                        <p class="text-xs text-slate-400">1 Cocina Oculta + 2 Locales en Barrio Popular | Ficha 2879654</p>
+                    </div>
+                </div>
+                <button onclick="cerrarModalFondoEmprender()" class="text-slate-400 hover:text-white p-2">
+                    <i class="fas fa-times text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Contenido Estructurado -->
+            <div class="space-y-6 text-xs sm:text-sm">
+                
+                <!-- 1. Justificación y Problema Resuelto -->
+                <div class="bg-carbon-800/60 p-4 rounded-2xl border border-white/5 space-y-2">
+                    <h4 class="font-bold text-white text-base flex items-center gap-2">
+                        <i class="fas fa-bullseye text-broaster-500"></i> Planteamiento de la Oportunidad
+                    </h4>
+                    <p class="text-slate-300 leading-relaxed text-xs">
+                        En los barrios populares de la Región Caribe (Soledad, Simón Bolívar, Rebolo, etc.), la oferta tradicional de pollo frito opera de manera empírica, con exceso de absorción de aceite, pérdida de crocancia durante el domicilio y sin productos complementarios de alta rentabilidad como postres gourmet.
+                    </p>
+                    <p class="text-slate-300 leading-relaxed text-xs">
+                        <strong>Nuestra Solución Piloto:</strong> Adquirir la franquicia oficial <em>El Broaster del Chef</em> con acompañamiento directo del Chef, incorporando freidoras broaster industriales de alta presión y el doble motor de <em>Los Helados del Chef</em> (55% margen), articulando 2 puntos físicos populares de alto tráfico y 1 cocina oculta digital optimizada para domicilios masivos.
+                    </p>
+                </div>
+
+                <!-- 2. Estructura Tripartita del Piloto -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <div class="p-3 bg-carbon-800 rounded-xl border border-broaster-500/30">
+                        <div class="font-extrabold text-broaster-400 text-xs mb-1">🏪 Punto 1: Barrio Soledad</div>
+                        <p class="text-[11px] text-slate-400">Local popular con comedor, vitrina térmica de 3 bandejas y atención para llevar y domicilio.</p>
+                    </div>
+                    <div class="p-3 bg-carbon-800 rounded-xl border border-crunch-500/30">
+                        <div class="font-extrabold text-crunch-400 text-xs mb-1">🏪 Punto 2: Barrio Simón Bolívar</div>
+                        <p class="text-[11px] text-slate-400">Local popular sobre el corredor de la Calle 45 Murillo con gran afluencia peatonal y residencial.</p>
+                    </div>
+                    <div class="p-3 bg-carbon-800 rounded-xl border border-emerald-500/30">
+                        <div class="font-extrabold text-emerald-400 text-xs mb-1">🛵 Punto 3: Cocina Oculta Hub</div>
+                        <p class="text-[11px] text-slate-400">Dark Kitchen 100% digital para despacho veloz vía WhatsApp y plataformas (Rappi/Web).</p>
+                    </div>
+                </div>
+
+                <!-- 3. Indicadores Financieros Clave -->
+                <div class="bg-carbon-950 p-4 rounded-2xl border border-white/10">
+                    <h4 class="font-bold text-white text-sm mb-3 flex items-center gap-2">
+                        <i class="fas fa-calculator text-crunch-400"></i> Métricas Financieras del Plan de Negocio
+                    </h4>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+                        <div class="bg-carbon-900 p-2.5 rounded-xl">
+                            <span class="text-[10px] text-slate-400 block">Precio Combo Base</span>
+                            <span class="text-white font-extrabold text-sm">$27.400 COP</span>
+                        </div>
+                        <div class="bg-carbon-900 p-2.5 rounded-xl">
+                            <span class="text-[10px] text-slate-400 block">Punto de Equilibrio</span>
+                            <span class="text-crunch-400 font-extrabold text-sm">844 combos/mes</span>
+                        </div>
+                        <div class="bg-carbon-900 p-2.5 rounded-xl">
+                            <span class="text-[10px] text-slate-400 block">Meta Mes 1</span>
+                            <span class="text-emerald-400 font-extrabold text-sm">1.200 combos/mes</span>
+                        </div>
+                        <div class="bg-carbon-900 p-2.5 rounded-xl">
+                            <span class="text-[10px] text-slate-400 block">Margen Contribución</span>
+                            <span class="text-helados-400 font-extrabold text-sm">56.2%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Equipo Emprendedor (SENA) -->
+                <div class="p-4 bg-carbon-800/40 rounded-2xl border border-white/5 space-y-2">
+                    <h4 class="font-bold text-white text-sm flex items-center gap-2">
+                        <i class="fas fa-users text-crunch-400"></i> Equipo Emprendedor
+                    </h4>
+                    <ul class="text-xs text-slate-300 space-y-1">
+                        <li><strong>Líder de Proyecto y Arquitectura Digital:</strong> Daniel Manzanera Salcedo</li>
+                        <li><strong>Centro de Formación:</strong> Centro Nacional Colombo Alemán (CNCA) - Regional Atlántico</li>
+                        <li><strong>Programa:</strong> Implementación de Infraestructura TIC / ADSO (Ficha 2879654)</li>
+                        <li><strong>Chef Ejecutivo & Operaciones:</strong> Estandarización de receta secreta (+10 años)</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-white/10 flex justify-end">
+                <button onclick="cerrarModalFondoEmprender()" class="bg-broaster-600 hover:bg-broaster-500 text-white font-bold text-xs px-6 py-2.5 rounded-xl transition">
+                    Entendido / Cerrar
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Scripts de la Aplicación -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
